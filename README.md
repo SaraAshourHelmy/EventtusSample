@@ -8,6 +8,8 @@
   - Refresh Follower list to get last update data
   - Get last 10 tweets of follower and cash them
   - Background image of follower display as sticky header
+  - Localization (Arabic and English)
+  - 
 #Application Flow :
 
 #1- MainActivity : 
