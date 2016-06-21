@@ -4,14 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/img_adapter_user"
         android:layout_width="@dimen/img_user"
         android:layout_height="@dimen/img_user"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_margin="@dimen/general_margin"
-        android:scaleType="fitXY" />
+        app:civ_border_color="@color/white"
+        app:civ_border_width="2dp" />
+
 
     <TextView
         android:id="@+id/tv_adapter_name"

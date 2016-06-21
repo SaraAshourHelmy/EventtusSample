@@ -6,7 +6,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.io.File;
@@ -19,6 +23,12 @@ import sara.com.eventtussample.R;
  * Created by sara on 6/17/2016.
  */
 public class UtilityMethod {
+
+    public static void SetupActionBar(AppCompatActivity activity) {
+
+        activity.getSupportActionBar().setHomeButtonEnabled(true);
+        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
     public static void SetToast(Context context, String msg) {
 

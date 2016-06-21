@@ -14,6 +14,7 @@ import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import sara.com.Models.User;
 import sara.com.Utility.StaticAssets;
 import sara.com.eventtussample.R;
@@ -41,7 +42,8 @@ public class FollowersAdapter extends ArrayAdapter<User> {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.adapter_followers, parent, false);
             vHolder = new Holder();
-            vHolder.img_user = (ImageView) convertView.findViewById(R.id.img_adapter_user);
+            vHolder.img_user =(CircleImageView)convertView.findViewById
+                    (R.id.img_adapter_user);
             vHolder.tv_name = (TextView) convertView.findViewById(R.id.tv_adapter_name);
             vHolder.tv_bio = (TextView) convertView.findViewById(R.id.tv_adapter_bio);
             convertView.setTag(vHolder);
@@ -56,6 +58,7 @@ public class FollowersAdapter extends ArrayAdapter<User> {
 
     private void SetData(Holder vHolder, int pos) {
         vHolder.tv_name.setText(users.get(pos).getUser_name());
+
         UrlImageViewHelper.setUrlDrawable
                 (vHolder.img_user, users.get(pos).getProfile_img(),
                         R.drawable.user_icon, StaticAssets.CacheTime);
@@ -70,7 +73,7 @@ public class FollowersAdapter extends ArrayAdapter<User> {
 
     public static class Holder {
 
-        public ImageView img_user;
+        public CircleImageView img_user;
         public TextView tv_name;
         public TextView tv_bio;
     }

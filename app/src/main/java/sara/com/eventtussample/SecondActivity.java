@@ -16,6 +16,7 @@ import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import sara.com.Adapters.FollowersAdapter;
 import sara.com.DBModels.UserDB;
 import sara.com.Models.User;
@@ -28,7 +29,7 @@ public class SecondActivity extends AppCompatActivity implements
         SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener {
 
     private TextView tv_user_name;
-    private ImageView img_user_profile;
+    private CircleImageView img_user_profile;
     private ListView lstV_followers;
     private FollowersAdapter adapter;
     private SwipeRefreshLayout swipe_refresh;
@@ -47,10 +48,14 @@ public class SecondActivity extends AppCompatActivity implements
 
         userData = new SharedUserData(this);
         tv_user_name = (TextView) findViewById(R.id.tv_user_name);
-        img_user_profile = (ImageView) findViewById(R.id.img_user_profile);
+        img_user_profile = (CircleImageView) findViewById(R.id.img_user_profile);
         lstV_followers = (ListView) findViewById(R.id.lstV_followers);
         swipe_refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
 
+        // change refresh color
+        swipe_refresh.setColorSchemeColors
+                (getResources().getColor(R.color.app_color));
+        
         swipe_refresh.setOnRefreshListener(this);
         lstV_followers.setOnItemClickListener(this);
         tv_user_name.setText(userData.getUserName());
@@ -58,7 +63,7 @@ public class SecondActivity extends AppCompatActivity implements
         // load img from url
         UrlImageViewHelper.setUrlDrawable
                 (img_user_profile, userData.getProfileImg(),
-                        R.drawable.user_icon, StaticAssets.CacheTime );
+                        R.drawable.user_icon, StaticAssets.CacheTime);
 
 
         // check internet to get data from server or database direct

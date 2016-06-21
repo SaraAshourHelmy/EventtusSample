@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -10,36 +11,35 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/img_user_profile"
             android:layout_width="@dimen/img_user"
             android:layout_height="@dimen/img_user"
             android:layout_below="@+id/tv_user_name"
             android:layout_margin="@dimen/general_margin"
-            android:scaleType="fitXY" />
+            android:src="@drawable/user_icon" />
 
         <TextView
             android:id="@+id/tv_user_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/img_user"
             android:layout_margin="@dimen/general_margin"
             android:gravity="center_vertical"
+            android:textColor="@color/black"
             android:textSize="@dimen/font_size_large" />
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_height"
-        android:background="@color/gray"></View>
 
     <TextView
-        android:textColor="@color/colorPrimary"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/img_user"
-        android:layout_marginStart="@dimen/general_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/txt_default_height"
+        android:layout_marginTop="@dimen/general_margin"
+        android:background="@color/app_color"
         android:gravity="center_vertical"
+        android:paddingStart="@dimen/general_margin"
         android:text="@string/followers"
+        android:textColor="@color/white"
         android:textSize="@dimen/font_size_large"
         android:textStyle="bold" />
 

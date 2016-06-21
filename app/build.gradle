@@ -56,5 +56,8 @@ dependencies {
     // for sticky header
     compile 'com.github.carlonzo.stikkyheader:core:0.0.3-SNAPSHOT'
 
+    // for circle imageView
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+
 
 }

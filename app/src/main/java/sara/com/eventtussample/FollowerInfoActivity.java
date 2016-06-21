@@ -1,10 +1,12 @@
 package sara.com.eventtussample;
 
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -12,9 +14,11 @@ import android.widget.ListView;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import it.carlom.stikkyheader.core.StikkyHeaderBuilder;
 import it.carlom.stikkyheader.core.animator.AnimatorBuilder;
 import it.carlom.stikkyheader.core.animator.HeaderStikkyAnimator;
+import sara.com.Adapters.TweetsAdapter;
 import sara.com.DBModels.TweetDB;
 import sara.com.Models.User;
 import sara.com.Utility.StaticAssets;
@@ -24,7 +28,8 @@ import sara.com.Utility.UtilityMethod;
 
 public class FollowerInfoActivity extends AppCompatActivity {
 
-    private ImageView img_user, img_bg;
+    private ImageView img_bg;
+    private CircleImageView img_user;
     private ListView lstV_tweets;
     private String[] tweets;
     private User user;
@@ -34,8 +39,9 @@ public class FollowerInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_follower_info);
 
+        // setup actionbar
+        UtilityMethod.SetupActionBar(this);
         SetupTools();
-
         // check internet
         if (UtilityMethod.HaveNetworkConnection(this)) {
             new GetTweetClass().execute();
@@ -45,13 +51,12 @@ public class FollowerInfoActivity extends AppCompatActivity {
 
     private void SetupTools() {
 
-
         // get user info
         if (getIntent().getSerializableExtra("user") != null) {
             user = (User) getIntent().getSerializableExtra("user");
         }
 
-        img_user = (ImageView) findViewById(R.id.img_user);
+        img_user = (CircleImageView) findViewById(R.id.img_user);
         img_bg = (ImageView) findViewById(R.id.header_image);
         lstV_tweets = (ListView) findViewById(R.id.lstV_user_tweets);
 
@@ -105,8 +110,8 @@ public class FollowerInfoActivity extends AppCompatActivity {
 
         tweets = TweetDB.GetTweets(this, user.getUserId());
         lstV_tweets.setAdapter
-                (new ArrayAdapter<String>(FollowerInfoActivity.this,
-                        android.R.layout.simple_list_item_1, tweets));
+                (new TweetsAdapter(FollowerInfoActivity.this,
+                        R.layout.adapter_tweet, tweets));
     }
 
 }
