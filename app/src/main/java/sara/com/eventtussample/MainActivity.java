@@ -21,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
     private TwitterLoginButton btn_login;
     private TwitterSession twitter_session;
     private SharedUserData userData;
-    // Test github
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         userData = new SharedUserData(this);
 
+        // check if no internet first time
         if (!userData.getLoginStatus() && !UtilityMethod.HaveNetworkConnection(this)) {
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -90,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
                 // check error because of Internet
                 UtilityMethod.HaveNetworkConnection(MainActivity.this);
                 UtilityMethod.SetLog("result", "fail");
-                UtilityMethod.clearApplicationData(this);
-                finish();
 
             }
         } else

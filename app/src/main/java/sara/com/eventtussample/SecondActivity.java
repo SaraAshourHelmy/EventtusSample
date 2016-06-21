@@ -71,6 +71,7 @@ public class SecondActivity extends AppCompatActivity implements
                         R.drawable.user_icon, StaticAssets.CacheTime );
 
 
+        // check internet to get data from server or database direct
         if (UtilityMethod.HaveNetworkConnection(this))
             new GetFollowers().execute();
         else
