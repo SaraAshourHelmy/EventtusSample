@@ -1,5 +1,7 @@
 package sara.com.eventtussample;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -90,8 +92,10 @@ public class MainActivity extends AppCompatActivity {
             {
                 // check error because of Internet
                 UtilityMethod.HaveNetworkConnection(MainActivity.this);
-                UtilityMethod.SetLog("result", "fail");
+                UtilityMethod.SetToast(MainActivity.this, "Fail Login");
 
+                // clear data InCase error
+                UtilityMethod.ClearData(MainActivity.this);
             }
         } else
             btn_login.onActivityResult(requestCode, resultCode, data);

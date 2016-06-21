@@ -1,5 +1,7 @@
 package sara.com.Utility;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
@@ -88,5 +90,11 @@ public class UtilityMethod {
         db.setTransactionSuccessful();
         db.endTransaction();
         db.close();
+    }
+
+    public static void ClearData(Activity activity) {
+        ((ActivityManager) activity.getSystemService(activity.ACTIVITY_SERVICE))
+                .clearApplicationUserData();
+        activity.finish();
     }
 }
