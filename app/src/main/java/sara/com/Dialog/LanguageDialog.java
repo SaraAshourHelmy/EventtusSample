@@ -33,7 +33,7 @@ public class LanguageDialog extends Dialog implements View.OnClickListener {
         tv_arabic = (TextView) findViewById(R.id.tv_arabic);
         tv_english.setOnClickListener(this);
         tv_arabic.setOnClickListener(this);
-
+        
         // load current language
         if (userData.GetLanguage() == StaticAssets.English)
             SetupTextColor(tv_english, tv_arabic);
