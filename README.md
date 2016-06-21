@@ -11,7 +11,7 @@
   in case of no internet get followers data from database directly and cash all img in memory for
   2 Minutes
 
-#3- when tap on follower cell Move To FollowerInfoActivity to display more info  and get last 10 tweets 
-
-   Cashing tweets in db in case of tapping on followers when internet conneted 
-   if tap on followers when no internet connection there are no tweets cashed on database
+#3- Move To FollowerInfoActivity 
+    when tap on follower cell to display more info  and get last 10 tweets .
+    Cashing tweets in db in case of tapping on followers when internet conneted 
+    if tap on followers when no internet connection there are no tweets cashed on database
