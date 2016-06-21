@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EventtusSample</string>
+    <string name="twitter_error">يوجد خطأ في الدخول</string>
+    <string name="no_name">لا يوجد اسم</string>
+    <string name="no_img">لا يوجد صورة</string>
+    <string name="error_data">خطأ في تحميل البيانات</string>
+    <string name="no_internet">لا يوجد اتصال بالانترنت</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="no_access">لا يوجد تصريح للحصول علي اشعارات</string>
+    <string name="followers">التابعين</string>
+</resources>

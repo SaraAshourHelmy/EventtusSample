@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EventtusSample</string>
+    <string name="twitter_error">Error in twitter login</string>
+    <string name="no_name">No UserName</string>
+    <string name="no_img">No Image</string>
+    <string name="error_data">Error in Loading Data</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="no_access">No access permission to tweets of </string>
+    <string name="followers">Followers</string>
+</resources>
