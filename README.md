@@ -1,5 +1,17 @@
 # EventtusSample
 
+#Application Features :
+ 
+  - Login with twitter
+  - Save user crediential in Shared File
+  - Get user Follower and cash them in local Database
+  - Refresh Follower list to get last update data
+  - Get last 10 tweets of follower
+  - Background image of follower display as sticky header
+  - cash follower tweet 
+   
+ #Application Flow :
+
 #1- MainActivity : 
    this is Launch Activity and use to login
    with twitter API
