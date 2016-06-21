@@ -6,6 +6,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -37,10 +40,29 @@ public class SecondActivity extends AppCompatActivity implements
     private SharedUserData userData;
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menus, menu);
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         SetupTools();
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.menu_setting) {
+
+            UtilityMethod.DisplayLanguageDialog(this);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -55,7 +77,7 @@ public class SecondActivity extends AppCompatActivity implements
         // change refresh color
         swipe_refresh.setColorSchemeColors
                 (getResources().getColor(R.color.app_color));
-        
+
         swipe_refresh.setOnRefreshListener(this);
         lstV_followers.setOnItemClickListener(this);
         tv_user_name.setText(userData.getUserName());

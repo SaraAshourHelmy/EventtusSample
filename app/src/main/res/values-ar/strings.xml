@@ -8,4 +8,6 @@
     <string name="title_activity_second">SecondActivity</string>
     <string name="no_access">لا يوجد تصريح للحصول علي اشعارات</string>
     <string name="followers">المتابعين</string>
+    <string name="English">انجليزي</string>
+    <string name="arabic">عربي</string>
 </resources>

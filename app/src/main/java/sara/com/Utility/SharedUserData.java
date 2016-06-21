@@ -10,8 +10,8 @@ import sara.com.eventtussample.R;
  */
 public class SharedUserData {
 
-    public SharedPreferences sharedUser;
-    private SharedPreferences.Editor editor;
+    public  SharedPreferences sharedUser;
+    private  SharedPreferences.Editor editor;
     private Context context;
 
     public SharedUserData(Context context) {
@@ -29,6 +29,16 @@ public class SharedUserData {
         editor.putLong("id", id);
         editor.putString("screen_name", screen_name);
         editor.commit();
+    }
+
+    public  void SetLanguage(int lang) {
+        editor.putInt("lang", lang);
+        editor.commit();
+    }
+
+    public  int GetLanguage() {
+
+        return sharedUser.getInt("lang", StaticAssets.English);
     }
 
     public void SetFirst() {

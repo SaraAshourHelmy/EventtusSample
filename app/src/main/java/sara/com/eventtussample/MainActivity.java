@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         // create db first time only
         if (!userData.getFirst())
             UtilityMethod.CreateDB(MainActivity.this);
+
+        // get device language
+        UtilityMethod.GetDevicesLanguage(this);
     }
 
     private void SetupCallBack() {

@@ -10,6 +10,8 @@ public class StaticAssets {
     public static final String DbName = "eventtus_db.sqlite";
     public static final String SharedUserData = "UserData";
     public static final int CacheTime = 60000 * 2;
+    public static int English = 1;
+    public static int Arabic = 2;
 
 
 }

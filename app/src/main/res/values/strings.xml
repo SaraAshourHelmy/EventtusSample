@@ -8,4 +8,6 @@
     <string name="no_internet">No Internet Connection</string>
     <string name="no_access">No access permission to tweets of </string>
     <string name="followers">Followers</string>
+    <string name="arabic">Arabic</string>
+    <string name="English">English</string>
 </resources>

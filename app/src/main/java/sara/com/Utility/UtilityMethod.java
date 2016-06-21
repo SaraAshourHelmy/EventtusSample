@@ -2,7 +2,10 @@ package sara.com.Utility;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -16,8 +19,11 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.Locale;
 
+import sara.com.Dialog.LanguageDialog;
 import sara.com.eventtussample.R;
+import sara.com.eventtussample.SecondActivity;
 
 /**
  * Created by sara on 6/17/2016.
@@ -28,6 +34,7 @@ public class UtilityMethod {
 
         activity.getSupportActionBar().setHomeButtonEnabled(true);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     public static void SetToast(Context context, String msg) {
@@ -107,4 +114,55 @@ public class UtilityMethod {
                 .clearApplicationUserData();
         activity.finish();
     }
+
+    public static void DisplayLanguageDialog(Context context) {
+
+        LanguageDialog languageDialog = new LanguageDialog(context);
+        languageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        languageDialog.show();
+
+    }
+
+    // to get device language
+    public static void GetDevicesLanguage(Context context) {
+
+        SharedUserData userData = new SharedUserData(context);
+        String lang = Locale.getDefault().getLanguage();
+
+        if (lang.equals("en"))
+            userData.SetLanguage(StaticAssets.English);
+
+        else if (lang.equals("ar"))
+            userData.SetLanguage(StaticAssets.Arabic);
+
+    }
+
+    // set language from app
+    public static void SetSettingLanguage(Context context, int language) {
+
+        Locale locale = null;
+        SharedUserData userData = new SharedUserData(context);
+
+        if (language == StaticAssets.Arabic) {
+            locale = new Locale("ar");
+            Locale.setDefault(locale);
+            userData.SetLanguage(StaticAssets.Arabic);
+
+        } else if (language == StaticAssets.English) {
+            locale = new Locale("en");
+            Locale.setDefault(locale);
+            userData.SetLanguage(StaticAssets.English);
+        }
+
+        Configuration config = new Configuration();
+        config.locale = locale;
+        context.getResources().updateConfiguration(config,
+                context.getResources().getDisplayMetrics());
+
+        Intent intent = new Intent(context, SecondActivity.class);
+        context.startActivity(intent);
+        ((Activity) context).finish();
+
+    }
+
 }

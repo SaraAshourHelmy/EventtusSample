@@ -42,6 +42,7 @@ public class FollowerInfoActivity extends AppCompatActivity {
         // setup actionbar
         UtilityMethod.SetupActionBar(this);
         SetupTools();
+
         // check internet
         if (UtilityMethod.HaveNetworkConnection(this)) {
             new GetTweetClass().execute();
@@ -78,7 +79,7 @@ public class FollowerInfoActivity extends AppCompatActivity {
     private void SetupStickyHeader() {
         StikkyHeaderBuilder.stickTo(lstV_tweets)
                 .setHeader(R.id.header, (ViewGroup) findViewById(R.id.container))
-                .minHeightHeaderDim(R.dimen.min_height_header)
+                .minHeightHeaderDim(R.dimen.zero_height)
                 .animator(new StickyAnimator())
                 .build();
     }
