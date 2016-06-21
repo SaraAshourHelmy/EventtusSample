@@ -1,17 +1,14 @@
 package sara.com.eventtussample;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,11 +16,6 @@ import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import java.util.ArrayList;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.http.GET;
 import sara.com.Adapters.FollowersAdapter;
 import sara.com.DBModels.UserDB;
 import sara.com.Models.User;
@@ -38,7 +30,6 @@ public class SecondActivity extends AppCompatActivity implements
     private TextView tv_user_name;
     private ImageView img_user_profile;
     private ListView lstV_followers;
-    private LinearLayout lnr_user_info;
     private FollowersAdapter adapter;
     private SwipeRefreshLayout swipe_refresh;
     private ArrayList<User> users;
@@ -59,7 +50,6 @@ public class SecondActivity extends AppCompatActivity implements
         img_user_profile = (ImageView) findViewById(R.id.img_user_profile);
         lstV_followers = (ListView) findViewById(R.id.lstV_followers);
         swipe_refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
-        lnr_user_info = (LinearLayout) findViewById(R.id.lnr_user_info);
 
         swipe_refresh.setOnRefreshListener(this);
         lstV_followers.setOnItemClickListener(this);
