@@ -14,4 +14,4 @@
 #3- Move To FollowerInfoActivity 
     when tap on follower cell to display more info  and get last 10 tweets .
     Cashing tweets in db in case of tapping on followers when internet conneted 
-    if tap on followers when no internet connection there are no tweets cashed on database
+    if tap on follower cell when no internet connection there are no tweets cashed on database
