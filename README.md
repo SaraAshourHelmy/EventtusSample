@@ -23,15 +23,15 @@
  * this Activity display userName and profile img
   and All followers of this twitter account
 
-  *in case of no internet get followers data from database directly and cash all img in memory for
-  2 Minutes
+  * in case of no internet get followers data from database directly and cash all img in memory for
+   2 Minutes
   * in this screen can change language from english to arabic or Conversely
 
 - Move To FollowerInfoActivity 
   when tap on follower cell to display more info  and get last 10 tweets .
-  Cashing tweets in database in case of tapping on followers when internet conneted 
+  Cashing tweets in database in case of tapping on followers when internet conneted ,
   if tap on follower cell when no internet connection there are no tweets cashed on database
 
 #Developed by
     sara ashour
-    https://www.linkedin.com/in/sara-ashour-4119a7102?trk=hp-identity-name
+  https://www.linkedin.com/in/sara-ashour-4119a7102?trk=hp-identity-name
