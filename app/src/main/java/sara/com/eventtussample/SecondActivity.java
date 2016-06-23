@@ -4,6 +4,7 @@ package sara.com.eventtussample;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
@@ -38,6 +40,7 @@ public class SecondActivity extends AppCompatActivity implements
     private SwipeRefreshLayout swipe_refresh;
     private ArrayList<User> users;
     private SharedUserData userData;
+    private ProgressBar progress_download;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,10 +76,11 @@ public class SecondActivity extends AppCompatActivity implements
         img_user_profile = (CircleImageView) findViewById(R.id.img_user_profile);
         lstV_followers = (ListView) findViewById(R.id.lstV_followers);
         swipe_refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+        progress_download = (ProgressBar) findViewById(R.id.custom_progress_follower);
 
         // change refresh color
         swipe_refresh.setColorSchemeColors
-                (getResources().getColor(R.color.app_color));
+                (ContextCompat.getColor(this, R.color.app_color));
 
         swipe_refresh.setOnRefreshListener(this);
         lstV_followers.setOnItemClickListener(this);
@@ -98,6 +102,8 @@ public class SecondActivity extends AppCompatActivity implements
 
     public void SetFollowerData() {
 
+        swipe_refresh.setVisibility(View.VISIBLE);
+        progress_download.setVisibility(View.GONE);
         users = UserDB.GetUsers(SecondActivity.this);
         adapter = new FollowersAdapter(this, R.layout.adapter_followers, users);
         lstV_followers.setAdapter(adapter);
@@ -119,6 +125,14 @@ public class SecondActivity extends AppCompatActivity implements
         MoveToUserInfo(position);
     }
 
+    private void MoveToUserInfo(int position) {
+
+        Intent intent = new Intent(SecondActivity.this, FollowerInfoActivity.class);
+        intent.putExtra("user", users.get(position));
+        startActivity(intent);
+
+    }
+
     class GetFollowers extends AsyncTask<Void, Void, Void> {
 
 
@@ -135,14 +149,7 @@ public class SecondActivity extends AppCompatActivity implements
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             SetFollowerData();
+
         }
-    }
-
-    private void MoveToUserInfo(int position) {
-
-        Intent intent = new Intent(SecondActivity.this, FollowerInfoActivity.class);
-        intent.putExtra("user", users.get(position));
-        startActivity(intent);
-
     }
 }

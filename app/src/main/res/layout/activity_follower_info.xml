@@ -8,6 +8,7 @@
     tools:context="sara.com.eventtussample.FollowerInfoActivity">
 
     <ListView
+
         android:id="@+id/lstV_user_tweets"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -37,4 +38,14 @@
             app:civ_border_width="2dp" />
 
     </FrameLayout>
+
+    <include
+        android:id="@+id/custom_progress_tweets"
+        layout="@layout/custom_progress"
+        android:layout_width="@dimen/txt_default_height"
+        android:layout_height="@dimen/txt_default_height"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/min_height_header"/>
+
 </RelativeLayout>

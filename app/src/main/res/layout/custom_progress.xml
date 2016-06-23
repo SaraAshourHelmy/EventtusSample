@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/progress_download"
+    android:layout_width="@dimen/txt_default_height"
+    android:layout_height="@dimen/txt_default_height"
+    android:layout_gravity="center"
+    android:layout_marginTop="@dimen/general_margin"
+    android:indeterminateDrawable="@drawable/progress_animate"
+    android:indeterminateDuration="1500" />

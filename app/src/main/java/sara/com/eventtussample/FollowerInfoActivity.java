@@ -10,6 +10,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
@@ -31,6 +32,7 @@ public class FollowerInfoActivity extends AppCompatActivity {
     private ImageView img_bg;
     private CircleImageView img_user;
     private ListView lstV_tweets;
+    private ProgressBar progress_download;
     private String[] tweets;
     private User user;
 
@@ -60,6 +62,7 @@ public class FollowerInfoActivity extends AppCompatActivity {
         img_user = (CircleImageView) findViewById(R.id.img_user);
         img_bg = (ImageView) findViewById(R.id.header_image);
         lstV_tweets = (ListView) findViewById(R.id.lstV_user_tweets);
+        progress_download = (ProgressBar) findViewById(R.id.custom_progress_tweets);
 
         // load user img
         if (user != null) {
@@ -84,6 +87,15 @@ public class FollowerInfoActivity extends AppCompatActivity {
                 .build();
     }
 
+    private void SetupTweetList() {
+
+        progress_download.setVisibility(View.GONE);
+        tweets = TweetDB.GetTweets(this, user.getUserId());
+        lstV_tweets.setAdapter
+                (new TweetsAdapter(FollowerInfoActivity.this,
+                        R.layout.adapter_tweet, tweets));
+    }
+
     public class GetTweetClass extends AsyncTask<Void, Void, Boolean> {
         @Override
         protected Boolean doInBackground(Void... params) {
@@ -97,6 +109,7 @@ public class FollowerInfoActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
 
+            progress_download.setVisibility(View.GONE);
             if (!result)
                 // user close permission to get his tweets
                 UtilityMethod.SetToast(FollowerInfoActivity.this, getString(R.string.no_access)
@@ -105,14 +118,6 @@ public class FollowerInfoActivity extends AppCompatActivity {
                 SetupTweetList();
 
         }
-    }
-
-    private void SetupTweetList() {
-
-        tweets = TweetDB.GetTweets(this, user.getUserId());
-        lstV_tweets.setAdapter
-                (new TweetsAdapter(FollowerInfoActivity.this,
-                        R.layout.adapter_tweet, tweets));
     }
 
 }
