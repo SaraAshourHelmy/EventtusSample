@@ -96,9 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 // check error because of Internet
                 UtilityMethod.HaveNetworkConnection(MainActivity.this);
                 UtilityMethod.SetToast(MainActivity.this, "Fail Login");
-
-                // clear data InCase error
-                UtilityMethod.ClearData(MainActivity.this);
             }
         } else
             btn_login.onActivityResult(requestCode, resultCode, data);

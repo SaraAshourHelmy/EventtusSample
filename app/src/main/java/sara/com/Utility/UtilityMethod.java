@@ -25,9 +25,6 @@ import sara.com.Dialog.LanguageDialog;
 import sara.com.eventtussample.R;
 import sara.com.eventtussample.SecondActivity;
 
-/**
- * Created by sara on 6/17/2016.
- */
 public class UtilityMethod {
 
     public static void SetupActionBar(AppCompatActivity activity) {
@@ -107,12 +104,6 @@ public class UtilityMethod {
         db.setTransactionSuccessful();
         db.endTransaction();
         db.close();
-    }
-
-    public static void ClearData(Activity activity) {
-        ((ActivityManager) activity.getSystemService(activity.ACTIVITY_SERVICE))
-                .clearApplicationUserData();
-        activity.finish();
     }
 
     public static void DisplayLanguageDialog(Context context) {
