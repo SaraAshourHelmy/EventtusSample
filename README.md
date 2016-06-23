@@ -10,7 +10,7 @@
   - Refresh Follower list to get last update data
   - Get last 10 tweets of follower and cash them
   - Background image of follower display as sticky header
-  - Localization (Arabic and English) by using default device language or by using setting inside application
+  - Localization (Arabic and English) by using default device language or by using setting inside application that exist in actinbar menu
   
 
 #Application Flow :
