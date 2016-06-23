@@ -1,13 +1,11 @@
 package sara.com.eventtussample;
 
 import android.os.AsyncTask;
-import android.os.Build;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -17,8 +15,6 @@ import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import it.carlom.stikkyheader.core.StikkyHeaderBuilder;
-import it.carlom.stikkyheader.core.animator.AnimatorBuilder;
-import it.carlom.stikkyheader.core.animator.HeaderStikkyAnimator;
 import sara.com.Adapters.TweetsAdapter;
 import sara.com.DBModels.TweetDB;
 import sara.com.Models.User;
@@ -33,6 +29,7 @@ public class FollowerInfoActivity extends AppCompatActivity {
     private CircleImageView img_user;
     private ListView lstV_tweets;
     private ProgressBar progress_download;
+    private SwipeRefreshLayout swipe_refresh;
     private String[] tweets;
     private User user;
 
@@ -70,10 +67,11 @@ public class FollowerInfoActivity extends AppCompatActivity {
                     (img_user, user.getProfile_img(),
                             R.drawable.user_icon, StaticAssets.CacheTime);
 
+            // load background img
             if (user.getBg_img() != null && user.getBg_img().length() > 0)
                 UrlImageViewHelper.setUrlDrawable
                         (img_bg, user.getBg_img(),
-                                R.drawable.bg, StaticAssets.CacheTime);
+                                R.drawable.background_default, StaticAssets.CacheTime);
         }
 
         SetupStickyHeader();
@@ -82,7 +80,7 @@ public class FollowerInfoActivity extends AppCompatActivity {
     private void SetupStickyHeader() {
         StikkyHeaderBuilder.stickTo(lstV_tweets)
                 .setHeader(R.id.header, (ViewGroup) findViewById(R.id.container))
-                .minHeightHeaderDim(R.dimen.zero_height)
+                .minHeightHeaderDim(R.dimen.min_height)
                 .animator(new StickyAnimator())
                 .build();
     }

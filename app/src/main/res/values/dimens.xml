@@ -11,5 +11,5 @@
     <dimen name="max_height_header">300dp</dimen>
     <dimen name="min_height_header">100dp</dimen>
     <dimen name="txt_default_height">50dp</dimen>
-    <dimen name="zero_height">0dp</dimen>
+    <dimen name="min_height">20dp</dimen>
 </resources>

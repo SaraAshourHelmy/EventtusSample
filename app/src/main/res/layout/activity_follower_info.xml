@@ -23,19 +23,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/bg" />
+            android:src="@drawable/background_default" />
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/img_user"
             android:layout_width="@dimen/img_user"
             android:layout_height="@dimen/img_user"
-            android:layout_below="@+id/tv_user_name"
             android:layout_gravity="bottom|center_horizontal"
-            android:layout_margin="@dimen/general_margin"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:src="@drawable/user_icon"
             app:civ_border_color="@color/white"
             app:civ_border_width="2dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom"
+            android:background="@color/app_color" />
 
     </FrameLayout>
 
@@ -46,6 +50,6 @@
         android:layout_height="@dimen/txt_default_height"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/min_height_header"/>
+        android:layout_marginBottom="@dimen/min_height_header" />
 
 </RelativeLayout>
