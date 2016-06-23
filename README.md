@@ -33,5 +33,5 @@
   if tap on follower cell when no internet connection there are no tweets cashed on database
 
 #Developed by
-    sara ashour
+    Sara Ashour
   https://www.linkedin.com/in/sara-ashour-4119a7102?trk=hp-identity-name
