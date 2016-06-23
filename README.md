@@ -8,7 +8,7 @@
   - Refresh Follower list to get last update data
   - Get last 10 tweets of follower and cash them
   - Background image of follower display as sticky header
-  - Localization (Arabic and English)
+  - Localization (Arabic and English) by using default setting language or by using setting inside application
   
 
 #Application Flow :
@@ -25,9 +25,9 @@
   2 Minutes
 
 - Move To FollowerInfoActivity 
-    when tap on follower cell to display more info  and get last 10 tweets .
-    Cashing tweets in database in case of tapping on followers when internet conneted 
-    if tap on follower cell when no internet connection there are no tweets cashed on database
+  when tap on follower cell to display more info  and get last 10 tweets .
+  Cashing tweets in database in case of tapping on followers when internet conneted 
+  if tap on follower cell when no internet connection there are no tweets cashed on database
 
 #Developed by
 sara ashour
