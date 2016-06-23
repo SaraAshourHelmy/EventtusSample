@@ -1,4 +1,6 @@
 # EventtusSample
+ EventtusSample application that allow user to login using twitter API and get all followers
+ and tap on any follower to get last 10 tweets of them
 
 #Application Features :
  
